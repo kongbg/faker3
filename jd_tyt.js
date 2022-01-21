@@ -300,7 +300,7 @@ function getCoinDozerInfo() {
                          if (safeGet(data)) {
                               data = JSON.parse(data);
                               if (data.success == true && data?.data?.sponsorActivityInfo?.packetId) {
-                                   console.log('叼毛：' + data.data.sponsorActivityInfo.initiatorNickname)
+                                   console.log('用户：' + data.data.sponsorActivityInfo.initiatorNickname)
                                    console.log('邀请码：' + data.data.sponsorActivityInfo.packetId)
                                    console.log('推出：' + data.data.sponsorActivityInfo.dismantledAmount)
                                    if (data.data && data.data.sponsorActivityInfo.packetId) {
