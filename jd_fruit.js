@@ -1002,8 +1002,8 @@ async function GetCollect() {
       console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${$.farmInfo.farmUserPro.shareCode}`);
       newShareCodes.push($.farmInfo.farmUserPro.shareCode)
     } else {
-      console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】\n数据异常,使用ccwav的互助码:f910ae66879a422daeb32f9250fc5e2e`);
-	  newShareCodes.push("f910ae66879a422daeb32f9250fc5e2e");
+      console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】\n数据异常,使用好好说再见8的互助码:99d771850c654fea88f6703ccf9ef118`);
+	  newShareCodes.push("99d771850c654fea88f6703ccf9ef118");
     }
   } catch (e) {
     $.logErr(e);
@@ -1273,6 +1273,7 @@ async function initForFarm() {
         } else {
           if (safeGet(data)) {
             $.farmInfo = JSON.parse(data)
+            console.log('initForFarm:', $.farmInfo)
           }
         }
       } catch (e) {
@@ -1377,6 +1378,7 @@ function TotalBean() {
         } else {
           if (data) {
             data = JSON.parse(data);
+            console.log('TotalBean:', TotalBean)
             if (data['retcode'] === "1001") {
               $.isLogin = false; //cookie过期
               return;
