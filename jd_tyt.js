@@ -11,6 +11,7 @@ const $ = new Env('推一推');//助力前三个可助力的账号
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+console.log('jdCookieNode:', jdCookieNode)
 const JD_API_HOST = 'https://api.m.jd.com';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
@@ -32,7 +33,7 @@ if ($.isNode()) {
           $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
           return;
      }
-
+     console.log('cookiesArr:', cookiesArr)
      for (let i = 0; i < cookiesArr.length; i++) {
           if (cookiesArr[i]) {
                cookie = cookiesArr[i];
@@ -122,6 +123,7 @@ function info() {
                          if (safeGet(data)) {
                               data = JSON.parse(data);
                               if (data.success == true) {
+                                   console.log('info:', data)
                                    console.log('邀请码：' + data.data.packetId)
                                    console.log('初始推出：' + data.data.amount)
                                    if (data.data && data.data.packetId) {
@@ -250,6 +252,7 @@ function help(packetId) {
                     } else {
                          if (safeGet(data)) {
                               data = JSON.parse(data);
+                              console.log('help:', data)
                               if (data.success == true) {
                                    console.log("帮砍：" + data.data.amount)
 
